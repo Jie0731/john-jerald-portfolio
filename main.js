@@ -5,14 +5,56 @@ const groups=[
 {n:'04',k:'ANIMATION',t:'Animated Storytelling',d:'Stylized narrative videos combining visual identity, character consistency, pacing, motion, and cinematic composition.',v:[['animation-01.mp4','The Nonchalant Man Nobody Can Read'],['animation-02.mp4','5 Signs That Reveal Who Someone Really Is']]},
 {n:'05',k:'AI CONTENT',t:'Other AI Content',d:'Food, DIY, lifestyle, faceless, and educational short-form content produced with repeatable AI-assisted workflows.',v:[['other-01.mp4','3 Kitchen Hacks That Actually Work'],['other-02.mp4','Fridge Seal Foam Reset'],['other-03.mp4','2-Ingredient Bagels'],['other-04.mp4','Charcoal & Lemon Pan Miracle'],['other-05.mp4','Floor Cleaning Tips'],['other-06.mp4','Grilled Chicken Sandwich'],['other-07.mp4','2-Ingredient Apple Cider Donuts'],['other-08.mp4','4-Ingredient Dinner Blend']]}
 ];
+
 const host=document.querySelector('#sections');
-host.innerHTML=groups.map(g=>`<section class="category"><div class="wrap category-head reveal"><b>${g.n}</b><div><small>${g.k}</small><h3>${g.t}</h3></div><p>${g.d}</p></div><div class="wrap video-grid ${g.v.length>3?'many':''}">${g.v.map(([src,title],i)=>`<article class="video-card reveal"><div class="player"><div class="badge"><i></i>AUTOPLAY · MUTED</div><video muted autoplay loop playsinline controls preload="metadata" src="./videos/${src}" aria-label="${title}"></video></div><div class="video-meta"><small>${g.k.split('/')[0]}</small><b>${title}</b></div></article>`).join('')}</div></section>`).join('');
+
+host.innerHTML=groups.map(g=>`
+<section class="category">
+  <div class="wrap category-head reveal">
+    <b>${g.n}</b>
+    <div>
+      <small>${g.k}</small>
+      <h3>${g.t}</h3>
+    </div>
+    <p>${g.d}</p>
+  </div>
+
+  <div class="wrap video-grid ${g.v.length>3?'many':''}">
+    ${g.v.map(([src,title])=>`
+      <article class="video-card reveal">
+        <div class="player">
+          <div class="badge"><i></i>AUTOPLAY · MUTED</div>
+
+          <video
+            muted
+            autoplay
+            loop
+            playsinline
+            controls
+            controlsList="nodownload"
+            disablePictureInPicture
+            preload="metadata"
+            src="./videos/${src}"
+            aria-label="${title}">
+          </video>
+        </div>
+
+        <div class="video-meta">
+          <small>${g.k.split('/')[0]}</small>
+          <b>${title}</b>
+        </div>
+      </article>
+    `).join('')}
+  </div>
+</section>
+`).join('');
+
 const allVideos=[...document.querySelectorAll('video')];
 
-// All previews autoplay silently by default. They pause only when far off-screen.
 const observer=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){
     e.target.classList.add('show');
+
     if(e.target.tagName==='VIDEO'){
       e.target.muted=true;
       e.target.defaultMuted=true;
@@ -22,7 +64,11 @@ const observer=new IntersectionObserver(es=>es.forEach(e=>{
     e.target.muted=true;
     e.target.pause();
   }
-}),{threshold:.12,rootMargin:'120px 0px'});
+}),{
+  threshold:.12,
+  rootMargin:'120px 0px'
+});
+
 document.querySelectorAll('.reveal,video').forEach(x=>observer.observe(x));
 
 function muteOthers(active){
@@ -39,24 +85,42 @@ allVideos.forEach(v=>{
   v.defaultMuted=true;
   v.volume=1;
 
-  // Desktop: hover = sound on for this video only; leave = muted again.
+  // Desktop:
+  // hover = sound on
+  // mouse leaves = mute again
   v.addEventListener('mouseenter',()=>{
     muteOthers(v);
     v.muted=false;
     v.volume=1;
     v.play().catch(()=>{});
   });
+
   v.addEventListener('mouseleave',()=>{
     v.muted=true;
   });
 
-  // Touch/mobile fallback: tapping the video toggles sound for this video only.
+  // Mobile/touch:
+  // tap muted video = unmute
+  // tap again while unmuted = mute
   v.addEventListener('click',()=>{
     if(v.muted){
       muteOthers(v);
       v.muted=false;
       v.volume=1;
+      v.play().catch(()=>{});
+    }else{
+      v.muted=true;
     }
   });
 });
-const theme=document.querySelector('#theme');theme.onclick=()=>{document.body.classList.toggle('light');theme.querySelector('span').textContent=document.body.classList.contains('light')?'Dark':'Light';theme.firstChild.textContent=document.body.classList.contains('light')?'☾ ':'☼ '};
+
+const theme=document.querySelector('#theme');
+
+theme.onclick=()=>{
+  document.body.classList.toggle('light');
+
+  const isLight=document.body.classList.contains('light');
+
+  theme.querySelector('span').textContent=isLight?'Dark':'Light';
+  theme.firstChild.textContent=isLight?'☾ ':'☼ ';
+};
