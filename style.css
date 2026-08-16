@@ -1117,5 +1117,13 @@ footer{
     transition-duration:.01ms!important;
     scroll-behavior:auto!important;
   }
+/* ... existing CSS mo sa taas ... */
 
+
+/* RESTORE GREEN 100 MILLION VIEWS */
+.hero h1 em {
+  color: #91ff3f !important;
+  font-style: normal !important;
+  font-weight: 800;
+}
 }
