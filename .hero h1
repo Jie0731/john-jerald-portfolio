@@ -304,6 +304,11 @@ a{
   }
 
 }
+.hero h1 em {
+  color: #91ff3f !important;
+  font-style: normal !important;
+  font-weight: 800;
+}
 
 
 /* =====================================================
