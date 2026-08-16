@@ -1206,5 +1206,7 @@ body.light .hero-copy .actions a:last-child{
   .hero-copy .actions a{
     padding:12px 17px !important;
   }
-
+.hero h1{
+  color:red !important;
+}
 }
