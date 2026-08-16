@@ -1090,5 +1090,101 @@ footer{
     transition-duration:.01ms!important;
     scroll-behavior:auto!important;
   }
+/* =====================================================
+   FINAL HERO TEXT + BUTTON FIX
+   Paste at the VERY BOTTOM of style.css
+   ===================================================== */
 
+/* Force 100 million views to green */
+.hero h1 em,
+.hero-copy h1 em,
+.hero h1 strong,
+.hero-copy h1 strong {
+  color:#91ff3f !important;
+}
+
+/* Keep EM green but NOT italic */
+.hero h1 em,
+.hero-copy h1 em {
+  font-style:normal !important;
+  font-weight:800 !important;
+}
+
+/* Fix hero button container */
+.hero .actions,
+.hero-copy .actions {
+  display:flex !important;
+  align-items:center;
+  gap:12px !important;
+  margin-top:30px !important;
+}
+
+/* Make BOTH links real buttons even if classes changed */
+.hero .actions a,
+.hero-copy .actions a {
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  width:auto !important;
+
+  padding:13px 20px !important;
+  border-radius:999px !important;
+
+  font-size:12px !important;
+  line-height:1 !important;
+  font-weight:700 !important;
+
+  text-decoration:none !important;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease !important;
+}
+
+/* VIEW MY WORK — GREEN */
+.hero .actions a:first-child,
+.hero-copy .actions a:first-child {
+  background:#91ff3f !important;
+  color:#071005 !important;
+  border:1px solid #91ff3f !important;
+}
+
+/* WORK WITH ME — DARK OUTLINE */
+.hero .actions a:last-child,
+.hero-copy .actions a:last-child {
+  background:transparent !important;
+  color:#f5f5f2 !important;
+  border:1px solid #343734 !important;
+}
+
+/* Hover */
+.hero .actions a:first-child:hover {
+  transform:translateY(-4px) !important;
+  box-shadow:0 14px 35px rgba(145,255,63,.22) !important;
+}
+
+.hero .actions a:last-child:hover {
+  transform:translateY(-4px) !important;
+  border-color:#91ff3f !important;
+}
+
+/* Light mode */
+body.light .hero .actions a:last-child {
+  color:#10110f !important;
+}
+
+/* Mobile */
+@media(max-width:520px){
+  .hero .actions,
+  .hero-copy .actions {
+    flex-wrap:wrap;
+  }
+
+  .hero .actions a,
+  .hero-copy .actions a {
+    padding:12px 17px !important;
+  }
+}
 }
