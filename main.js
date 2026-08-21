@@ -18,7 +18,8 @@ const groups=[
   d:'Creator-style vertical videos designed to feel native, conversational, realistic, and ready for TikTok, Reels, Shorts, and paid social.',
   v:[
     ['ugc-01.mp4','UGC Sample 01'],
-    ['ugc-02.mp4','UGC Sample 02']
+    ['ugc-02.mp4','UGC Sample 02'],
+    ['ugc-03.mp4','UGC Sample 03']
   ]
 },
 {
