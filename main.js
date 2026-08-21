@@ -5,7 +5,9 @@ const groups=[
   t:'VSL',
   d:'AI-assisted video sales letters built around hooks, product storytelling, pacing, and conversion-focused visual sequences.',
   v:[
-    
+    ['vsl-01.mp4','VSL Sample 01'],
+    ['vsl-02.mp4','VSL Sample 02'],
+    ['vsl-03.mp4 (2)','VSL Sample 03']
   ]
 },
 {
