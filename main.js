@@ -7,7 +7,8 @@ const groups=[
   v:[
     ['vsl-01.mp4','VSL Sample 01'],
     ['vsl-02.mp4','VSL Sample 02'],
-    ['vsl-03.mp4','VSL Sample 03']
+    ['vsl-03.mp4','VSL Sample 03'],
+    ['vsl-04.mp4','VSL Sample 04']
   ]
 },
 {
