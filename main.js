@@ -43,8 +43,18 @@ const groups=[
     ['animation-02.mp4','5 Signs That Reveal Who Someone Really Is']
   ]
 },
-{
+  {
   n:'05',
+  k:'CLAYMATION',
+  t:'Claymation AI Videos',
+  d:'Clay-style AI videos with handcrafted textures, expressive motion, stop-motion-inspired animation, and consistent visual storytelling.',
+  v:[
+    ['claymation-01.mp4','Claymation Sample 01'],
+    ['claymation-02.mp4','Claymation Sample 02']
+  ]
+},
+{
+  n:'06',
   k:'AI CONTENT',
   t:'Other AI Content',
   d:'Food, DIY, lifestyle, faceless, and educational short-form content produced with repeatable AI-assisted workflows.',
