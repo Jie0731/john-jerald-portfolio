@@ -490,3 +490,32 @@ if(theme){
   };
 
 }
+
+/* Contact dialog: native focus trapping, Escape and trigger focus restoration */
+const contactDialog = document.querySelector('#contact');
+const contactTriggers = document.querySelectorAll('[data-contact-open]');
+let contactOpener;
+function openContacts(opener) {
+  if (!contactDialog || contactDialog.open) return;
+  contactOpener = opener;
+  contactDialog.showModal();
+  document.body.classList.add('contact-open');
+}
+contactTriggers.forEach(trigger => {
+  trigger.addEventListener('click', event => {
+    event.preventDefault();
+    openContacts(trigger);
+  });
+});
+contactDialog?.querySelector('.contact-close')?.addEventListener('click', () => contactDialog.close());
+contactDialog?.addEventListener('click', event => {
+  const rect = contactDialog.getBoundingClientRect();
+  if (event.target === contactDialog &&
+      (event.clientX < rect.left || event.clientX > rect.right ||
+       event.clientY < rect.top || event.clientY > rect.bottom)) contactDialog.close();
+});
+contactDialog?.addEventListener('close', () => {
+  document.body.classList.remove('contact-open');
+  contactOpener?.focus({ preventScroll: true });
+});
+if (window.location.hash === '#contact') openContacts(contactTriggers[0]);

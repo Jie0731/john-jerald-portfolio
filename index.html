@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <meta name="theme-color" content="#080908"/>
 
-  <title>John Jerald Abasola — AI Video Creator</title>
+  <title>John Jerald Abasola — AI Video Editor &amp; AI Contents Creator</title>
 
   <meta
     name="description"
-    content="AI Video Creator & AI Video Editor portfolio — 100M+ views across platforms."
+    content="AI Video Editor &amp; AI Contents Creator portfolio — 100M+ views across platforms."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -165,7 +165,7 @@
     <a href="#results">Results</a>
     <a href="#work">Work</a>
     <a href="#about">About</a>
-    <a class="nav-cta" href="#contact">Work with me ↗</a>
+    <a class="nav-cta" href="#contact" aria-haspopup="dialog" aria-controls="contact" data-contact-open>Work with me ↗</a>
 
     <button id="theme" aria-label="Toggle theme">
       ☼ <span>Light</span>
@@ -196,7 +196,7 @@
 
       <p>
         I'm <strong>John Jerald Abasola</strong>,
-        an AI Ads Specialist & Video Editor creating high-retention
+        an AI Video Editor &amp; AI Contents Creator creating high-retention
         vertical content, VSL, UGC, stylized animation,
         and scalable AI production workflows.
       </p>
@@ -212,7 +212,7 @@
 
         <a
           class="ghost"
-          href="#contact"
+          href="#contact" aria-haspopup="dialog" aria-controls="contact" data-contact-open
         >
           Work with me ↗
         </a>
@@ -234,9 +234,9 @@
       </div>
 
       <div class="portrait-tag">
-        AI ADS SPECIALIST
-        <b>•</b>
         AI VIDEO EDITOR
+        <b>&amp;</b>
+        AI CONTENTS CREATOR
       </div>
 
     </div>
@@ -254,19 +254,41 @@
     </div>
 
     <div>
-      <strong>119K+</strong>
-      <span>YouTube subscribers gained</span>
-    </div>
-
-    <div>
-      <strong>484K+</strong>
-      <span>YouTube watch hours</span>
+      <strong>2 Years</strong>
+      <span>In AI video making</span>
     </div>
 
     <div>
       <strong>Daily</strong>
       <span>Production-ready workflow</span>
     </div>
+
+  </section>
+
+
+  <!-- ================= WORK ================= -->
+
+  <section id="work" class="work">
+
+    <div class="wrap section-head reveal">
+
+      <span>
+        SELECTED WORK
+      </span>
+
+      <h2>
+        Different formats. One production system.
+      </h2>
+
+      <p>
+        Click any video to watch. Use the YouTube player controls
+        for sound and fullscreen.
+      </p>
+
+    </div>
+
+    <!-- main.js inserts portfolio categories here -->
+    <div id="sections"></div>
 
   </section>
 
@@ -325,7 +347,7 @@
           <b>YouTube</b>
 
           <span>
-            59M views • 484.5K watch hours • +119.1K subscribers
+            59M views
           </span>
 
         </figcaption>
@@ -333,33 +355,6 @@
       </figure>
 
     </div>
-
-  </section>
-
-
-  <!-- ================= WORK ================= -->
-
-  <section id="work" class="work">
-
-    <div class="wrap section-head reveal">
-
-      <span>
-        SELECTED WORK
-      </span>
-
-      <h2>
-        Different formats. One production system.
-      </h2>
-
-      <p>
-        Click any video to watch. Use the YouTube player controls
-        for sound and fullscreen.
-      </p>
-
-    </div>
-
-    <!-- main.js inserts portfolio categories here -->
-    <div id="sections"></div>
 
   </section>
 
@@ -413,7 +408,8 @@
 
   <!-- ================= CONTACT ================= -->
 
-  <section id="contact" class="contact">
+  <dialog id="contact" class="contact contact-modal" aria-labelledby="contact-title">
+    <button class="contact-close" type="button" aria-label="Close contacts" autofocus>×</button>
 
     <div class="wrap">
 
@@ -423,7 +419,7 @@
           CONTACT
         </span>
 
-        <h2>
+        <h2 id="contact-title">
           Let's make something people actually watch.
         </h2>
 
@@ -512,7 +508,7 @@
 
     </div>
 
-  </section>
+  </dialog>
 
 </main>
 
