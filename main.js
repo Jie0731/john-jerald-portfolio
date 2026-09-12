@@ -1,3 +1,8 @@
+// VIDEO LINKS: Paste your YouTube URL between the empty quotes in each row.
+// Example: ['https://youtu.be/VIDEO_ID', 'VSL Sample 01']
+// Supports youtube.com/watch?v=..., youtu.be/..., and youtube.com/shorts/...
+// Leave a link empty to display “Video coming soon”.
+
 const groups=[
 {
   n:'01',
@@ -5,10 +10,10 @@ const groups=[
   t:'VSL',
   d:'AI-assisted video sales letters built around hooks, product storytelling, pacing, and conversion-focused visual sequences.',
   v:[
-    ['vsl-01.mp4','VSL Sample 01'],
-    ['vsl-02.mp4','VSL Sample 02'],
-    ['vsl-03.mp4','VSL Sample 03'],
-    ['vsl-04.mp4','VSL Sample 04']
+    ['', 'VSL Sample 01'],
+    ['', 'VSL Sample 02'],
+    ['', 'VSL Sample 03'],
+    ['', 'VSL Sample 04']
   ]
 },
 {
@@ -17,9 +22,9 @@ const groups=[
   t:'AI UGC',
   d:'Creator-style vertical videos designed to feel native, conversational, realistic, and ready for TikTok, Reels, Shorts, and paid social.',
   v:[
-    ['ugc-01.mp4','UGC Sample 01'],
-    ['ugc-02.mp4','UGC Sample 02'],
-    ['ugc-03.mp4','UGC Sample 03']
+    ['', 'UGC Sample 01'],
+    ['', 'UGC Sample 02'],
+    ['', 'UGC Sample 03']
   ]
 },
 {
@@ -28,9 +33,9 @@ const groups=[
   t:'Pixar-Style AI Videos',
   d:'Character-driven stylized 3D storytelling with consistent art direction, cinematic framing, expressive motion, and scene continuity.',
   v:[
-    ['pixar-01.mp4','Stylized 3D Sample 01'],
-    ['pixar-02.mp4','Stylized 3D Sample 02'],
-    ['pixar-03.mp4','Stylized 3D Sample 03']
+    ['', 'Stylized 3D Sample 01'],
+    ['', 'Stylized 3D Sample 02'],
+    ['', 'Stylized 3D Sample 03']
   ]
 },
 {
@@ -39,8 +44,8 @@ const groups=[
   t:'Animated Storytelling',
   d:'Stylized narrative videos combining visual identity, character consistency, pacing, motion, and cinematic composition.',
   v:[
-    ['animation-01.mp4','The Nonchalant Man Nobody Can Read'],
-    ['animation-02.mp4','5 Signs That Reveal Who Someone Really Is']
+    ['', 'The Nonchalant Man Nobody Can Read'],
+    ['', '5 Signs That Reveal Who Someone Really Is']
   ]
 },
   {
@@ -49,8 +54,8 @@ const groups=[
   t:'Claymation AI Videos',
   d:'Clay-style AI videos with handcrafted textures, expressive motion, stop-motion-inspired animation, and consistent visual storytelling.',
   v:[
-    ['claymation-01.mp4','Claymation Sample 01'],
-    ['claymation-02.mp4','Claymation Sample 02']
+    ['', 'Claymation Sample 01'],
+    ['', 'Claymation Sample 02']
   ]
 },
 {
@@ -59,17 +64,54 @@ const groups=[
   t:'Other AI Content',
   d:'Food, DIY, lifestyle, faceless, and educational short-form content produced with repeatable AI-assisted workflows.',
   v:[
-    ['other-01.mp4','3 Kitchen Hacks That Actually Work'],
-    ['other-02.mp4','Fridge Seal Foam Reset'],
-    ['other-03.mp4','2-Ingredient Bagels'],
-    ['other-04.mp4','Charcoal & Lemon Pan Miracle'],
-    ['other-05.mp4','Floor Cleaning Tips'],
-    ['other-06.mp4','Grilled Chicken Sandwich'],
-    ['other-07.mp4','2-Ingredient Apple Cider Donuts'],
-    ['other-08.mp4','4-Ingredient Dinner Blend']
+    ['', '3 Kitchen Hacks That Actually Work'],
+    ['', 'Fridge Seal Foam Reset'],
+    ['', '2-Ingredient Bagels'],
+    ['', 'Charcoal & Lemon Pan Miracle'],
+    ['', 'Floor Cleaning Tips'],
+    ['', 'Grilled Chicken Sandwich'],
+    ['', '2-Ingredient Apple Cider Donuts'],
+    ['', '4-Ingredient Dinner Blend']
   ]
 }
 ];
+
+function youtubeEmbed(link) {
+  try {
+    const url = new URL(link);
+    if (url.protocol !== 'https:' && url.protocol !== 'http:') return null;
+    const host = url.hostname.toLowerCase().replace(/^www\./, '');
+    let id;
+    if (host === 'youtu.be') {
+      id = url.pathname.split('/')[1];
+    } else if (['youtube.com', 'm.youtube.com', 'youtube-nocookie.com'].includes(host)) {
+      const parts = url.pathname.split('/').filter(Boolean);
+      id = parts[0] === 'watch' ? url.searchParams.get('v')
+        : ['shorts', 'embed', 'live'].includes(parts[0]) ? parts[1] : null;
+    }
+    return /^[A-Za-z0-9_-]{11}$/.test(id || '')
+      ? `https://www.youtube-nocookie.com/embed/${id}` : null;
+  } catch {
+    return null;
+  }
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[character]);
+}
+
+function renderPlayer(link, title) {
+  const embed = youtubeEmbed(link);
+  if (!embed) {
+    return '<div class="video-placeholder"><span aria-hidden="true">▶</span><p>Video coming soon</p></div>';
+  }
+  return `<iframe src="${embed}" title="${escapeHTML(title)}"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+}
 
 const host=document.querySelector('#sections');
 
@@ -96,29 +138,13 @@ host.innerHTML=groups.map(g=>`
 
         <div class="player">
 
-          <div class="badge">
-            <i></i>
-            AUTOPLAY · MUTED
-          </div>
-
-          <video
-            muted
-            autoplay
-            loop
-            playsinline
-            controls
-            controlsList="nodownload"
-            disablePictureInPicture
-            preload="metadata"
-            src="./videos/${src}"
-            aria-label="${title}">
-          </video>
+          ${renderPlayer(src, title)}
 
         </div>
 
         <div class="video-meta">
           <small>${g.k.split('/')[0]}</small>
-          <b>${title}</b>
+          <b>${escapeHTML(title)}</b>
         </div>
 
       </article>
@@ -351,126 +377,6 @@ const revealObserver=new IntersectionObserver(entries=>{
 document
   .querySelectorAll('.reveal,.category')
   .forEach(el=>revealObserver.observe(el));
-
-
-
-/* =========================================
-   VIDEO AUTOPLAY
-   Visible = play
-   Offscreen = pause + mute
-   ========================================= */
-
-const allVideos=[
-  ...document.querySelectorAll('video')
-];
-
-const videoObserver=new IntersectionObserver(entries=>{
-
-  entries.forEach(entry=>{
-
-    const video=entry.target;
-
-    if(entry.isIntersecting){
-
-      video.muted=true;
-      video.defaultMuted=true;
-
-      video.play().catch(()=>{});
-
-    }else{
-
-      video.muted=true;
-      video.pause();
-
-    }
-
-  });
-
-},{
-  threshold:.08,
-  rootMargin:'180px 0px'
-});
-
-allVideos.forEach(video=>{
-  videoObserver.observe(video);
-});
-
-
-
-/* =========================================
-   VIDEO AUDIO
-   Desktop:
-   hover = unmute
-   mouse leave = mute
-
-   Mobile:
-   tap = toggle sound
-   ========================================= */
-
-function muteOthers(active){
-
-  allVideos.forEach(video=>{
-
-    if(video!==active){
-      video.muted=true;
-      video.defaultMuted=true;
-    }
-
-  });
-
-}
-
-
-allVideos.forEach(video=>{
-
-  video.muted=true;
-  video.defaultMuted=true;
-  video.volume=1;
-
-
-  /* DESKTOP HOVER */
-
-  video.addEventListener('mouseenter',()=>{
-
-    muteOthers(video);
-
-    video.muted=false;
-    video.volume=1;
-
-    video.play().catch(()=>{});
-
-  });
-
-
-  video.addEventListener('mouseleave',()=>{
-
-    video.muted=true;
-
-  });
-
-
-  /* MOBILE / CLICK */
-
-  video.addEventListener('click',()=>{
-
-    if(video.muted){
-
-      muteOthers(video);
-
-      video.muted=false;
-      video.volume=1;
-
-      video.play().catch(()=>{});
-
-    }else{
-
-      video.muted=true;
-
-    }
-
-  });
-
-});
 
 
 
