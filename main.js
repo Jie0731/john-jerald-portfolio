@@ -10,7 +10,7 @@ const groups=[
   t:'VSL',
   d:'AI-assisted video sales letters built around hooks, product storytelling, pacing, and conversion-focused visual sequences.',
   v:[
-    ['', 'VSL Sample 01'],
+    ['https://youtube.com/shorts/qh9go-WYzLQ', 'VSL Sample 01'],
     ['', 'VSL Sample 02'],
     ['', 'VSL Sample 03'],
     ['', 'VSL Sample 04']
