@@ -518,4 +518,4 @@ contactDialog?.addEventListener('close', () => {
   document.body.classList.remove('contact-open');
   contactOpener?.focus({ preventScroll: true });
 });
-if (window.location.hash === '#contact') openContacts(contactTriggers[0]);
+// Contacts open only after an explicit click on Work with me.
