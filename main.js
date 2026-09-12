@@ -341,37 +341,21 @@ document.querySelector('.full-portfolio')
 
 /* =========================================
    SCROLL REVEAL
-   Replays when scrolling away and back
+   Plays once per element; stays visible when scrolling back
    ========================================= */
 
 const revealObserver=new IntersectionObserver(entries=>{
-
   entries.forEach(entry=>{
-
-    if(entry.isIntersecting){
-
-      requestAnimationFrame(()=>{
-        entry.target.classList.add('show');
-      });
-
-      if(entry.target.classList.contains('category')){
+    if (!entry.isIntersecting) return;
+    requestAnimationFrame(()=>{
+      entry.target.classList.add('show');
+      if (entry.target.classList.contains('category')) {
         entry.target.classList.add('in-view');
       }
-
-    }else{
-
-      if(!entry.target.matches('video')){
-        entry.target.classList.remove('show');
-      }
-
-      if(entry.target.classList.contains('category')){
-        entry.target.classList.remove('in-view');
-      }
-
-    }
-
+    });
+    // Keep revealed elements visible when scrolling back.
+    revealObserver.unobserve(entry.target);
   });
-
 },{
   threshold:.13,
   rootMargin:'0px 0px -7% 0px'
