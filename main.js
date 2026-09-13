@@ -52,8 +52,7 @@ const groups=[
   t:'Animated Storytelling',
   d:'Stylized narrative videos combining visual identity, character consistency, pacing, motion, and cinematic composition.',
   v:[
-    ['https://youtube.com/shorts/nuqR70I9MZo', 'The Nonchalant Man Nobody Can Read'],
-    ['', '5 Signs That Reveal Who Someone Really Is']
+    ['https://youtube.com/shorts/nuqR70I9MZo', 'The Nonchalant Man Nobody Can Read']
   ]
 },
   {
