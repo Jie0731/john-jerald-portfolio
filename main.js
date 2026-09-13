@@ -27,7 +27,11 @@ const groups=[
     ['https://youtube.com/shorts/IHHz6sZhd1Y?feature=share', 'UGC Sample 01'],
     ['https://youtube.com/shorts/BeVzC80jvkY', 'UGC Sample 02'],
     ['https://youtube.com/shorts/VMUBOZkoepI', 'UGC Sample 03'],
-    ['https://youtube.com/shorts/spEOiN7VWY8', 'UGC Sample 04']
+    ['https://youtube.com/shorts/spEOiN7VWY8', 'UGC Sample 04'],
+    ['https://youtube.com/shorts/6x0dQGLCMOY', 'UGC Sample 05'],
+    ['https://youtube.com/shorts/mjOlUYx_V5s', 'UGC Sample 06'],
+    ['https://youtube.com/shorts/t-7-M-4uorM', 'UGC Sample 07'],
+    ['https://youtube.com/shorts/9tfgSJo51WQ', 'UGC Sample 08']
   ]
 },
 {
