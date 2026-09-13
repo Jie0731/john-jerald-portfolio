@@ -66,22 +66,6 @@ const groups=[
     ['https://youtube.com/shorts/So6jA_8UPaU', 'Claymation Sample 02'],
     ['https://youtube.com/shorts/Qv4xDQgXYBQ', 'Claymation Sample 03']
   ]
-},
-{
-  n:'06',
-  k:'AI CONTENT',
-  t:'Other AI Content',
-  d:'Food, DIY, lifestyle, faceless, and educational short-form content produced with repeatable AI-assisted workflows.',
-  v:[
-    ['', '3 Kitchen Hacks That Actually Work'],
-    ['', 'Fridge Seal Foam Reset'],
-    ['', '2-Ingredient Bagels'],
-    ['', 'Charcoal & Lemon Pan Miracle'],
-    ['', 'Floor Cleaning Tips'],
-    ['', 'Grilled Chicken Sandwich'],
-    ['', '2-Ingredient Apple Cider Donuts'],
-    ['', '4-Ingredient Dinner Blend']
-  ]
 }
 ];
 
