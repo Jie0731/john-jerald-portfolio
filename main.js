@@ -30,8 +30,7 @@ const groups=[
     ['https://youtube.com/shorts/spEOiN7VWY8', 'UGC Sample 04'],
     ['https://youtube.com/shorts/6x0dQGLCMOY', 'UGC Sample 05'],
     ['https://youtube.com/shorts/mjOlUYx_V5s', 'UGC Sample 06'],
-    ['https://youtube.com/shorts/t-7-M-4uorM', 'UGC Sample 07'],
-    ['https://youtube.com/shorts/9tfgSJo51WQ', 'UGC Sample 08']
+    ['https://youtube.com/shorts/t-7-M-4uorM', 'UGC Sample 07']
   ]
 },
 {
