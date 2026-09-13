@@ -61,8 +61,9 @@ const groups=[
   t:'Claymation AI Videos',
   d:'Clay-style AI videos with handcrafted textures, expressive motion, stop-motion-inspired animation, and consistent visual storytelling.',
   v:[
-    ['', 'Claymation Sample 01'],
-    ['', 'Claymation Sample 02']
+    ['https://youtube.com/shorts/nTm7ya52FSc', 'Claymation Sample 01'],
+    ['https://youtube.com/shorts/So6jA_8UPaU', 'Claymation Sample 02'],
+    ['https://youtube.com/shorts/Qv4xDQgXYBQ', 'Claymation Sample 03']
   ]
 },
 {
