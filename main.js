@@ -99,7 +99,7 @@ function renderPlayer(link, title) {
   if (!embed) {
     return '<div class="video-placeholder"><span aria-hidden="true">▶</span><p>Video coming soon</p></div>';
   }
-  return `<iframe src="${embed}" title="${escapeHTML(title)}"
+  return `<iframe src="${embed}?enablejsapi=1&playsinline=1&origin=${encodeURIComponent(window.location.origin)}" title="${escapeHTML(title)}"
     loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
@@ -492,3 +492,72 @@ contactDialog?.addEventListener('close', () => {
   contactOpener?.focus({ preventScroll: true });
 });
 // Contacts open only after an explicit click on Work with me.
+
+/* YouTube hover previews: mouse only; touch devices use native tap controls. */
+function setupHoverPreviews() {
+  const mouseHover = window.matchMedia('(any-hover: hover) and (any-pointer: fine)');
+  if (!mouseHover.matches) return;
+  const states = [];
+  function pause(state) {
+    if (state.ready) { state.player.pauseVideo(); state.player.mute(); }
+  }
+  function preview(state) {
+    if (!state.ready || !state.hovered || !mouseHover.matches || document.hidden) return;
+    states.forEach(other => { if (other !== state) pause(other); });
+    state.player.mute();
+    state.player.playVideo();
+  }
+  const visibility = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        const state = states.find(item => item.card === entry.target);
+        if (state) { state.hovered = false; pause(state); }
+      }
+    });
+  }, { threshold: 0 });
+  document.querySelectorAll('.video-card').forEach(card => {
+    const frame = card.querySelector('iframe');
+    if (!frame) return;
+    const state = { card, frame, hovered: false, ready: false, player: null };
+    states.push(state);
+    card.addEventListener('pointerenter', event => {
+      if (event.pointerType !== 'mouse' || !mouseHover.matches) return;
+      state.hovered = true;
+      preview(state);
+    });
+    card.addEventListener('pointerleave', event => {
+      if (event.pointerType !== 'mouse') return;
+      state.hovered = false;
+      pause(state);
+    });
+    visibility.observe(card);
+  });
+  function connectPlayers() {
+    states.forEach(state => {
+      state.player = new window.YT.Player(state.frame, {
+        events: {
+          onReady: event => {
+            state.player = event.target;
+            state.ready = true;
+            preview(state);
+          }
+        }
+      });
+    });
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) states.forEach(state => { state.hovered = false; pause(state); });
+  });
+  mouseHover.addEventListener('change', () => {
+    if (!mouseHover.matches) states.forEach(state => { state.hovered = false; pause(state); });
+  });
+  if (window.YT?.Player) connectPlayers();
+  else {
+    window.onYouTubeIframeAPIReady = connectPlayers;
+    const script = document.createElement('script');
+    script.src = 'https://www.youtube.com/iframe_api';
+    script.async = true;
+    document.head.appendChild(script);
+  }
+}
+setupHoverPreviews();
