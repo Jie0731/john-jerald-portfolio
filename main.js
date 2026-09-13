@@ -504,7 +504,8 @@ function setupHoverPreviews() {
   function preview(state) {
     if (!state.ready || !state.hovered || !mouseHover.matches || document.hidden) return;
     states.forEach(other => { if (other !== state) pause(other); });
-    state.player.mute();
+    state.player.unMute();
+    state.player.setVolume(100);
     state.player.playVideo();
   }
   const visibility = new IntersectionObserver(entries => {
