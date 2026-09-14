@@ -111,12 +111,13 @@ const host = document.querySelector('#sections');
 host.innerHTML = groups.map(g => `
 <section class="category" data-category="${g.n}" aria-label="${escapeHTML(g.t)}">
   <div class="wrap category-head reveal"><b>${g.n}</b><div><small>${escapeHTML(g.k)}</small><h3>${escapeHTML(g.t)}</h3></div><p>${escapeHTML(g.d)}</p></div>
-  <div class="wrap video-grid">
+  <div class="wrap video-grid video-carousel" id="carousel-${g.n}" tabindex="0" role="region" aria-roledescription="carousel" aria-label="${escapeHTML(g.t)} videos">
     ${g.v.map(([src,title]) => `
       <article class="video-card reveal"><div class="player">${renderPlayer(src,title)}</div>
       <div class="video-meta"><small>${escapeHTML(g.k.split('/')[0])}<span aria-hidden="true">↗</span></small><b>${escapeHTML(title)}</b></div></article>
     `).join('')}
   </div>
+  <div class="wrap carousel-footer" ${g.v.length < 2 ? 'hidden' : ''}><span class="carousel-hint">Swipe or drag below the videos to explore <span aria-hidden="true">↔</span></span><div class="carousel-navigation"><span class="carousel-position" aria-live="polite"></span><button type="button" class="carousel-prev" aria-label="Previous ${escapeHTML(g.t)} videos" aria-controls="carousel-${g.n}">←</button><button type="button" class="carousel-next" aria-label="Next ${escapeHTML(g.t)} videos" aria-controls="carousel-${g.n}">→</button></div></div>
 </section>`).join('');
 
 // Each element reveals once and stays visible on return visits.
@@ -256,3 +257,59 @@ function setupHoverPreviews() {
 }
 setupHoverPreviews();
 
+
+/* Horizontal video browsing: native touch scrolling, arrows and keyboard. */
+document.querySelectorAll('.video-carousel').forEach(track => {
+  const section = track.closest('.category');
+  const previous = section.querySelector('.carousel-prev');
+  const next = section.querySelector('.carousel-next');
+  const position = section.querySelector('.carousel-position');
+  const cards = [...track.querySelectorAll('.video-card')];
+  function step() { return cards[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0); }
+  function update() {
+    if (!track.clientWidth) return;
+    previous.disabled = track.scrollLeft < 2;
+    next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+    const first = Math.min(cards.length, Math.round(track.scrollLeft / step()) + 1);
+    position.textContent = first + ' / ' + cards.length;
+  }
+  function move(direction) {
+    track.scrollBy({left: step() * direction, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+  }
+  previous.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  track.addEventListener('keydown', event => {
+    if (event.target !== track) return;
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
+    }
+  });
+  let drag = null;
+  track.addEventListener('pointerdown', event => {
+    if (event.pointerType !== 'mouse' || event.button !== 0 || event.target.closest('iframe,button,a')) return;
+    drag = {x:event.clientX, left:track.scrollLeft};
+    track.setPointerCapture(event.pointerId);
+    track.classList.add('dragging');
+  });
+  track.addEventListener('pointermove', event => {
+    if (drag) track.scrollLeft = drag.left - (event.clientX - drag.x);
+  });
+  function endDrag() { drag = null; track.classList.remove('dragging'); }
+  track.addEventListener('pointerup', endDrag);
+  track.addEventListener('pointercancel', endDrag);
+  track.addEventListener('lostpointercapture', endDrag);
+  track.addEventListener('scroll', () => {
+    update();
+    document.dispatchEvent(new Event('portfoliofilter'));
+  }, {passive:true});
+  new ResizeObserver(update).observe(track);
+  update();
+});
+const toolkit = document.querySelector('.toolkit-visible');
+const toolkitToggle = document.querySelector('.toolkit-toggle');
+toolkitToggle.addEventListener('click', () => {
+  const paused = toolkit.classList.toggle('motion-paused');
+  toolkitToggle.setAttribute('aria-pressed', String(paused));
+  toolkitToggle.setAttribute('aria-label', paused ? 'Resume toolkit animation' : 'Pause toolkit animation');
+  toolkitToggle.innerHTML = paused ? 'Resume motion <span aria-hidden="true">▶</span>' : 'Pause motion <span aria-hidden="true">Ⅱ</span>';
+});
