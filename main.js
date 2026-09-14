@@ -178,6 +178,8 @@ contactDialog.addEventListener('close', () => {
 const theme = document.querySelector('#theme');
 function setTheme(light) {
   document.body.classList.toggle('light',light);
+  const portrait = document.querySelector('.portrait-stage img');
+  if (portrait) portrait.src = light ? './assets/profile-light.webp' : './assets/profile.png';
   theme.textContent = light ? '☾' : '☼';
   theme.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
 }
