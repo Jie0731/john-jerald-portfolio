@@ -1,430 +1,89 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <meta name="theme-color" content="#080908"/>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b0d0b">
   <title>John Jerald Abasola — AI Video Editor &amp; AI Contents Creator</title>
-
-  <meta
-    name="description"
-    content="AI Video Editor &amp; AI Contents Creator portfolio — 100M+ views across platforms."
-  />
-
+  <meta name="description" content="AI video ads for e-commerce brands and businesses. Explore John Jerald Abasola’s VSL, UGC-style ads, and animated storytelling portfolio.">
+  <meta property="og:title" content="John Jerald Abasola — AI Video Ads for Brands">
+  <meta property="og:description" content="Product storytelling, UGC-style ads, and AI animation. Explore the work and start a conversation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://john-jerald-myportfolio.vercel.app/">
+  <meta property="og:image" content="https://john-jerald-myportfolio.vercel.app/assets/profile.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
-
-  <!-- ========================================
-       HERO FORCE FIX
-       Keeps green headline + pill buttons
-       ======================================== -->
-  <style>
-
-    /* GREEN 100 MILLION VIEWS */
-    .hero .hero-copy h1 em {
-      color: #91ff3f !important;
-      font-style: normal !important;
-      font-weight: 800 !important;
-      -webkit-text-fill-color: #91ff3f !important;
-    }
-
-    /* BUTTON CONTAINER */
-    .hero .hero-copy .actions {
-      display: flex !important;
-      align-items: center !important;
-      flex-wrap: wrap !important;
-      gap: 12px !important;
-      margin-top: 32px !important;
-    }
-
-    /* BOTH HERO BUTTONS */
-    .hero .hero-copy .actions > a {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-
-      width: auto !important;
-      min-width: 0 !important;
-
-      padding: 13px 20px !important;
-
-      border-radius: 999px !important;
-
-      font-family: Inter, Arial, sans-serif !important;
-      font-size: 12px !important;
-      font-weight: 700 !important;
-      line-height: 1 !important;
-
-      text-decoration: none !important;
-
-      cursor: pointer !important;
-
-      transition:
-        transform .3s ease,
-        background .3s ease,
-        border-color .3s ease,
-        box-shadow .3s ease !important;
-    }
-
-    /* VIEW MY WORK — GREEN */
-    .hero .hero-copy .actions > a.primary {
-      background: #91ff3f !important;
-      background-color: #91ff3f !important;
-
-      color: #071005 !important;
-      -webkit-text-fill-color: #071005 !important;
-
-      border: 1px solid #91ff3f !important;
-    }
-
-    /* WORK WITH ME — OUTLINED */
-    .hero .hero-copy .actions > a.ghost {
-      background: transparent !important;
-      background-color: transparent !important;
-
-      color: #f5f5f2 !important;
-      -webkit-text-fill-color: #f5f5f2 !important;
-
-      border: 1px solid #343834 !important;
-    }
-
-    /* HOVER */
-    .hero .hero-copy .actions > a.primary:hover {
-      transform: translateY(-4px) !important;
-
-      background: #a2ff5e !important;
-      background-color: #a2ff5e !important;
-
-      border-color: #a2ff5e !important;
-
-      box-shadow:
-        0 12px 35px rgba(145,255,63,.25) !important;
-    }
-
-    .hero .hero-copy .actions > a.ghost:hover {
-      transform: translateY(-4px) !important;
-
-      border-color: #91ff3f !important;
-
-      color: #91ff3f !important;
-      -webkit-text-fill-color: #91ff3f !important;
-
-      box-shadow:
-        0 12px 30px rgba(145,255,63,.08) !important;
-    }
-
-    /* LIGHT MODE */
-    body.light .hero .hero-copy .actions > a.ghost {
-      color: #10110f !important;
-      -webkit-text-fill-color: #10110f !important;
-      border-color: #bfc4ba !important;
-    }
-
-    body.light .hero .hero-copy .actions > a.ghost:hover {
-      color: #4d8f18 !important;
-      -webkit-text-fill-color: #4d8f18 !important;
-      border-color: #91ff3f !important;
-    }
-
-    /* MOBILE */
-    @media (max-width: 520px) {
-      .hero .hero-copy .actions {
-        gap: 9px !important;
-      }
-
-      .hero .hero-copy .actions > a {
-        padding: 12px 16px !important;
-        font-size: 11px !important;
-      }
-    }
-
-    .contact-grid .contact-id {
-      border: 1px solid var(--line);
-      border-radius: 15px;
-      padding: 20px;
-      display: grid;
-      gap: 8px;
-      align-content: start;
-    }
-    .contact-grid .contact-id b { user-select: text; }
-  </style>
-
+  <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
-
 <body>
-
-<div class="noise"></div>
-
+<a class="skip-link" href="#work">Skip to video work</a>
 <header class="nav">
-
-  <a class="brand" href="#top">
-    JIE<span>.</span>
-  </a>
-
-  <nav>
-    <a href="#results">Results</a>
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a class="nav-cta" href="#contact" aria-haspopup="dialog" aria-controls="contact" data-contact-open>Work with me ↗</a>
-
-    <button id="theme" aria-label="Toggle theme">
-      ☼ <span>Light</span>
-    </button>
+  <a class="brand" href="#top" aria-label="John Jerald, home">JIE<span>.</span><small>AI VIDEO CREATOR</small></a>
+  <nav aria-label="Main navigation">
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-link" href="#work">Work</a>
+    <a class="nav-link" href="#results">Results</a>
+    <button class="nav-cta" type="button" data-contact-open aria-haspopup="dialog" aria-controls="contact">Work with me <span aria-hidden="true">↗</span></button>
+    <button id="theme" type="button" aria-label="Switch to light theme" title="Switch theme">☼</button>
   </nav>
-
 </header>
-
-
 <main id="top">
-
-  <!-- ================= HERO ================= -->
-
-  <section class="hero wrap">
-
+  <section class="hero wrap" aria-labelledby="hero-title">
     <div class="hero-copy reveal">
-
-      <div class="eyebrow">
-        <i></i>
-        AVAILABLE FOR AI VIDEO WORK
-      </div>
-
-      <h1>
-        Generated over
-        <em>100 million views</em>
-        across different platforms.
-      </h1>
-
-      <p>
-        I'm <strong>John Jerald Abasola</strong>,
-        an AI Video Editor &amp; AI Contents Creator creating high-retention
-        vertical content, VSL, UGC, stylized animation,
-        and scalable AI production workflows.
-      </p>
-
+      <div class="eyebrow availability"><i aria-hidden="true"></i> AVAILABLE FOR NEW PROJECTS</div>
+      <h1 id="hero-title">AI video ads.<br>Made to <em>stop<br>the scroll.</em></h1>
+      <p class="hero-intro">I help e-commerce brands and businesses bring their products to life with <strong>AI-powered ads, UGC-style content, and visual storytelling.</strong></p>
       <div class="actions">
-
-        <a
-          class="primary"
-          href="#work"
-        >
-          View my work ↓
-        </a>
-
-        <a
-          class="ghost"
-          href="#contact" aria-haspopup="dialog" aria-controls="contact" data-contact-open
-        >
-          Work with me ↗
-        </a>
-
+        <button class="primary" type="button" data-contact-open aria-haspopup="dialog" aria-controls="contact">Work with me <span aria-hidden="true">↗</span></button>
+        <a class="secondary" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
       </div>
-
+      <div class="hero-note"><span>PRODUCT ADS</span><i></i><span>VSL</span><i></i><span>AI UGC</span></div>
     </div>
-
-
-    <div class="portrait-wrap reveal">
-
-      <div class="portrait-ring">
-
-        <img
-          src="./assets/profile.png"
-          alt="John Jerald Abasola"
-        >
-
-      </div>
-
-      <div class="portrait-tag">
-        AI VIDEO EDITOR
-        <b>&amp;</b>
-        AI CONTENTS CREATOR
-      </div>
-
+    <div class="creator-card reveal">
+      <div class="creator-top"><span>THE CREATOR BEHIND THE WORK</span><span aria-hidden="true">↗</span></div>
+      <div class="portrait-stage"><div class="portrait-orbit" aria-hidden="true"></div><img src="./assets/profile.png" alt="John Jerald Abasola" width="500" height="500" fetchpriority="high"></div>
+      <div class="creator-info"><span>HI, I'M JOHN JERALD</span><h2>Creative thinking.<br>AI-powered execution.</h2><p>AI Video Editor &amp; AI Contents Creator</p></div>
+      <div class="creator-bottom"><span><i aria-hidden="true"></i> YOUR NEXT CREATIVE PARTNER</span><a href="#about" aria-label="More about John Jerald">↓</a></div>
     </div>
-
   </section>
-
-
-  <!-- ================= STATS ================= -->
-
-  <section class="stats wrap reveal">
-
-    <div>
-      <strong>160M+</strong>
-      <span>Combined platform views</span>
-    </div>
-
-    <div>
-      <strong>2 Years</strong>
-      <span>In AI video making</span>
-    </div>
-
-    <div>
-      <strong>Daily</strong>
-      <span>Production-ready workflow</span>
-    </div>
-
+  <section class="stats wrap reveal" aria-label="Experience at a glance">
+    <div><strong>160M<span>+</span></strong><p>Combined platform views</p></div>
+    <div><strong>2 <span>years</span></strong><p>In AI video making</p></div>
+    <div><strong>Idea <span>→</span> edit</strong><p>AI creation meets hands-on editing</p></div>
   </section>
-
-
-  <!-- ================= ABOUT ================= -->
-
   <section id="about" class="about wrap">
-
-    <div class="section-head reveal">
-
-      <span>
-        ABOUT
-      </span>
-
-      <h2>
-        AI-first production with an editor's eye.
-      </h2>
-
+    <div class="section-top reveal"><span class="eyebrow">01 / ABOUT &amp; EXPERTISE</span><span class="section-aside">A CREATIVE PARTNER FOR YOUR BRAND</span></div>
+    <div class="about-heading reveal"><h2>AI-first production.<br><span class="muted">An editor’s eye.</span></h2><p>I’m <strong>John Jerald Abasola</strong>. I combine AI generation with hands-on editing to turn product ideas into clear, engaging video content—with strong hooks, intentional pacing, and a consistent visual style.</p></div>
+    <div class="services">
+      <article class="service-card reveal"><span class="service-number">01</span><h3>Ads that tell<br>your product’s story.</h3><p>Video sales letters and product ads built around the hook, the benefit, and the reason to care.</p><small>VSL &amp; PRODUCT ADS</small></article>
+      <article class="service-card reveal"><span class="service-number">02</span><h3>Content that feels<br>at home in the feed.</h3><p>AI UGC-style videos with conversational delivery and vertical edits for social and paid campaigns.</p><small>AI UGC &amp; SOCIAL CONTENT</small></article>
+      <article class="service-card reveal"><span class="service-number">03</span><h3>A visual world<br>of your own.</h3><p>Stylized 3D, animation, and claymation that bring character and personality to your message.</p><small>AI ANIMATION &amp; STORYTELLING</small></article>
     </div>
-
-
-    <div class="about-grid reveal">
-
-      <p>
-        I combine AI generation with hands-on editing
-        to create short-form videos that feel intentional,
-        consistent, and built for retention—not like raw AI output.
-      </p>
-
-
-      <div class="chips">
-
-        <span>Google Flow</span>
-        <span>Artlist</span>
-        <span>Kling</span>
-        <span>Seedance</span>
-        <span>Nano Banana</span>
-        <span>GPT Image</span>
-        <span>Claude</span>
-        <span>ChatGPT</span>
-        <span>CapCut Pro</span>
-        <span>Vertical Short-form</span>
-      
-
-      </div>
-
-    </div>
-
+    <details class="toolkit"><summary>Inside my creative toolkit <span aria-hidden="true">+</span></summary><div class="chips"><span>Google Flow</span><span>Artlist</span><span>Kling</span><span>Seedance</span><span>Nano Banana</span><span>GPT Image</span><span>Claude</span><span>ChatGPT</span><span>CapCut Pro</span></div></details>
   </section>
-
-
-  <!-- ================= WORK ================= -->
-
-  <section id="work" class="work" aria-label="Selected work">
-
-    <!-- main.js inserts portfolio categories here -->
+  <section id="work" class="work" aria-labelledby="work-title">
+    <div class="wrap work-intro reveal"><div><span class="eyebrow">02 / SELECTED WORK</span><h2 id="work-title">See the ideas<br><em>in motion.</em></h2></div><p>From product-led ads to character-driven stories.<br><span class="desktop-hint">Hover to preview with sound. Use the player controls to watch.</span><span class="mobile-hint">Tap a video to watch. Use the player controls for sound.</span></p></div>
+    <div class="wrap work-toolbar"><div class="work-filters" role="group" aria-label="Filter video work"></div><span class="work-count" aria-live="polite"></span></div>
+    <noscript><p class="wrap">Enable JavaScript to view the video showcase, or <a href="mailto:abasolajohnjerald@gmail.com">email me for samples</a>.</p></noscript>
     <div id="sections"></div>
-
   </section>
-
-
-  <!-- ================= RESULTS ================= -->
-
   <section id="results" class="results wrap">
-
-    <div class="section-head reveal">
-
-      <span>PROVEN RESULTS</span>
-
-      <h2>
-        Content built to perform.
-      </h2>
-
-      <p>
-        Real analytics from content performance
-        across Facebook and YouTube.
-      </p>
-
-    </div>
-
-
+    <div class="section-top reveal"><span class="eyebrow">03 / PROVEN RESULTS</span><span class="section-aside">REAL PLATFORM ANALYTICS</span></div>
+    <div class="results-heading reveal"><h2>Creative work.<br><span class="muted">Real reach.</span></h2><p>Content performance across Facebook and YouTube, with original analytics available below.</p></div>
     <div class="analytics">
-
-      <figure class="reveal">
-
-        <img
-          src="./assets/facebook-analytics.png"
-          alt="Facebook analytics showing over 104 million views"
-        >
-
-        <figcaption>
-
-          <b>Facebook</b>
-
-          <span>
-            104.5M views • organic reach
-          </span>
-
-        </figcaption>
-
-      </figure>
-
-
-      <figure class="reveal">
-
-        <img
-          src="./assets/youtube-analytics.png"
-          alt="YouTube analytics showing 59 million views"
-        >
-
-        <figcaption>
-
-          <b>YouTube</b>
-
-          <span>
-            59M views
-          </span>
-
-        </figcaption>
-
-      </figure>
-
+      <figure class="reveal"><figcaption><div><small>FACEBOOK</small><strong>104.5M <span>views</span></strong></div><span class="analytics-label">ORGANIC REACH ↗</span></figcaption><a href="./assets/facebook-analytics.png" target="_blank" rel="noopener" aria-label="Open Facebook analytics full size"><img src="./assets/facebook-analytics.png" alt="Facebook analytics showing over 104 million views" loading="lazy" width="800" height="450"></a></figure>
+      <figure class="reveal"><figcaption><div><small>YOUTUBE</small><strong>59M <span>views</span></strong></div><span class="analytics-label">CONTENT PERFORMANCE ↗</span></figcaption><a href="./assets/youtube-analytics.png" target="_blank" rel="noopener" aria-label="Open YouTube analytics full size"><img src="./assets/youtube-analytics.png" alt="YouTube analytics showing 59 million views" loading="lazy" width="800" height="450"></a></figure>
     </div>
-
   </section>
-
-
-  <!-- ================= CONTACT ================= -->
-
-  <dialog id="contact" class="contact contact-modal" aria-labelledby="contact-title">
+  <section class="process wrap" aria-labelledby="process-title"><div class="section-top reveal"><span class="eyebrow">04 / LET’S COLLABORATE</span></div><h2 id="process-title" class="reveal">Good work starts<br>with a clear brief.</h2><div class="process-grid"><div class="reveal"><span>01 — YOUR BRAND</span><h3>Tell me what you’re building.</h3><p>Share your product, audience, and the goal for your video.</p></div><div class="reveal"><span>02 — THE DIRECTION</span><h3>Find the right format.</h3><p>We can discuss the hook, visual style, references, and deliverables.</p></div><div class="reveal"><span>03 — THE PROJECT</span><h3>Agree on the next steps.</h3><p>Let’s align on scope and timeline before production begins.</p></div></div></section>
+  <section class="closing wrap reveal"><span class="eyebrow">HAVE A PRODUCT. NEED A STORY?</span><h2>Let’s make your<br>next ad <em>worth watching.</em></h2><div><button class="primary" type="button" data-contact-open aria-haspopup="dialog" aria-controls="contact">Work with me <span aria-hidden="true">↗</span></button><span class="closing-note">Tell me about your brand and what you have in mind.</span></div></section>
+  <dialog id="contact" class="contact-modal" aria-labelledby="contact-title">
     <button class="contact-close" type="button" aria-label="Close contacts" autofocus>×</button>
-
-    <div class="wrap">
-
-      <div class="section-head reveal">
-
-        <span>
-          CONTACT
-        </span>
-
-        <h2 id="contact-title">
-          Let's make something people actually watch.
-        </h2>
-
-        <p>
-          I create AI-powered video ads for e-commerce brands and businesses,
-          including product ads, UGC-style content, and video sales letters
-          designed to capture attention, showcase products, and drive sales.
-        </p>
-
-      </div>
-
-
-      <div class="contact-grid reveal">
+    <span class="eyebrow">LET’S WORK TOGETHER</span><h2 id="contact-title">Your next ad<br>starts here.</h2>
+    <p class="contact-intro">I create AI-powered video ads for e-commerce brands and businesses. Share your product, the type of video you need, and your timeline—let’s talk about your project.</p>
+    <div class="contact-grid">
 
         <a href="mailto:abasolajohnjerald@gmail.com">
 
@@ -491,33 +150,10 @@
           <b>View my profile</b>
           <span aria-hidden="true">↗</span>
         </a>
-
-      </div>
-
-    </div>
-
+</div>
+    <p class="contact-note">Email is a great place to send a brief. Prefer a quick conversation? Reach out on WhatsApp or Telegram.</p>
   </dialog>
-
 </main>
-
-
-<footer class="wrap">
-
-  <span>
-    © 2026 John Jerald Abasola
-  </span>
-
-  <a href="#top">
-    Back to top ↑
-  </a>
-
-</footer>
-
-
-<script
-  type="module"
-  src="./main.js">
-</script>
-
-</body>
-</html>
+<footer class="wrap"><a class="brand" href="#top">JIE<span>.</span></a><p>© 2026 John Jerald Abasola · AI Video Editor &amp; AI Contents Creator</p><a href="#top">Back to top ↑</a></footer>
+<script type="module" src="./main.js"></script>
+</body></html>
