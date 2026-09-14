@@ -111,13 +111,17 @@ const host = document.querySelector('#sections');
 host.innerHTML = groups.map(g => `
 <section class="category" data-category="${g.n}" aria-label="${escapeHTML(g.t)}">
   <div class="wrap category-head reveal"><b>${g.n}</b><div><small>${escapeHTML(g.k)}</small><h3>${escapeHTML(g.t)}</h3></div><p>${escapeHTML(g.d)}</p></div>
+  <div class="carousel-shell">
+    <button type="button" class="carousel-prev carousel-side" ${g.v.length < 2 ? 'hidden' : ''} aria-label="Previous ${escapeHTML(g.t)} videos" aria-controls="carousel-${g.n}">←</button>
   <div class="wrap video-grid video-carousel" id="carousel-${g.n}" tabindex="0" role="region" aria-roledescription="carousel" aria-label="${escapeHTML(g.t)} videos">
     ${g.v.map(([src,title]) => `
       <article class="video-card reveal"><div class="player">${renderPlayer(src,title)}</div>
       <div class="video-meta"><small>${escapeHTML(g.k.split('/')[0])}<span aria-hidden="true">↗</span></small><b>${escapeHTML(title)}</b></div></article>
     `).join('')}
   </div>
-  <div class="wrap carousel-footer" ${g.v.length < 2 ? 'hidden' : ''}><span class="carousel-hint">Swipe or drag below the videos to explore <span aria-hidden="true">↔</span></span><div class="carousel-navigation"><span class="carousel-position" aria-live="polite"></span><button type="button" class="carousel-prev" aria-label="Previous ${escapeHTML(g.t)} videos" aria-controls="carousel-${g.n}">←</button><button type="button" class="carousel-next" aria-label="Next ${escapeHTML(g.t)} videos" aria-controls="carousel-${g.n}">→</button></div></div>
+    <button type="button" class="carousel-next carousel-side" ${g.v.length < 2 ? 'hidden' : ''} aria-label="Next ${escapeHTML(g.t)} videos" aria-controls="carousel-${g.n}">→</button>
+  </div>
+  <div class="wrap carousel-footer" ${g.v.length < 2 ? 'hidden' : ''}><span class="carousel-hint">Swipe or drag below the videos to explore <span aria-hidden="true">↔</span></span><div class="carousel-navigation"><span class="carousel-position" aria-live="polite"></span></div></div>
 </section>`).join('');
 
 // Each element reveals once and stays visible on return visits.
@@ -304,12 +308,4 @@ document.querySelectorAll('.video-carousel').forEach(track => {
   }, {passive:true});
   new ResizeObserver(update).observe(track);
   update();
-});
-const toolkit = document.querySelector('.toolkit-visible');
-const toolkitToggle = document.querySelector('.toolkit-toggle');
-toolkitToggle.addEventListener('click', () => {
-  const paused = toolkit.classList.toggle('motion-paused');
-  toolkitToggle.setAttribute('aria-pressed', String(paused));
-  toolkitToggle.setAttribute('aria-label', paused ? 'Resume toolkit animation' : 'Pause toolkit animation');
-  toolkitToggle.innerHTML = paused ? 'Resume motion <span aria-hidden="true">▶</span>' : 'Pause motion <span aria-hidden="true">Ⅱ</span>';
 });
