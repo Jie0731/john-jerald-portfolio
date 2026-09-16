@@ -17,7 +17,9 @@ const groups=[
     ['https://youtube.com/shorts/96xvASrtwK4', 'VSL Sample 05'],
     ['https://youtube.com/shorts/xEsqEgKkH2M', 'VSL Sample 06'],
     ['https://youtube.com/shorts/FjcUtP4oJFY', 'VSL Sample 07'],
-    ['https://youtube.com/shorts/lkqYSMw9LR4', 'VSL Sample 08']
+    ['https://youtube.com/shorts/lkqYSMw9LR4', 'VSL Sample 08'],
+    ['https://youtube.com/shorts/gxmW8kYb83Q', 'VSL Sample 09'],
+    ['https://youtu.be/uxBVLGOz1yI', 'VSL Sample 10']
   ]
 },
 {
