@@ -68,6 +68,15 @@ const groups=[
     ['https://youtube.com/shorts/So6jA_8UPaU', 'Claymation Sample 02'],
     ['https://youtube.com/shorts/Qv4xDQgXYBQ', 'Claymation Sample 03']
   ]
+},
+{
+  n:'06',
+  k:'AI MUSIC',
+  t:'AI Song / Suno',
+  d:'AI-generated songs created with Suno, paired with video storytelling.',
+  v:[
+    ['https://youtube.com/shorts/w0Rb7vcZKoM', 'AI Song / Suno Sample 01']
+  ]
 }
 ];
 
@@ -136,7 +145,7 @@ const revealObserver = new IntersectionObserver(entries => {
 }, {threshold: .08});
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-const filterLabels = ['VSL', 'AI UGC', 'Pixar-style', 'Animation', 'Claymation'];
+const filterLabels = ['VSL', 'AI UGC', 'Pixar-style', 'Animation', 'Claymation', 'AI Song / Suno'];
 const filters = document.querySelector('.work-filters');
 filters.innerHTML = '<button type="button" data-filter="all" aria-pressed="true">All work</button>' +
   groups.map((g,i) => `<button type="button" data-filter="${g.n}" aria-pressed="false">${filterLabels[i] || escapeHTML(g.t)}</button>`).join('');
