@@ -164,26 +164,9 @@ filters.addEventListener('click', event => {
 });
 filterWork('all');
 
-// Native dialog provides keyboard focus trapping and Escape-to-close.
-const contactDialog = document.querySelector('#contact');
-let contactOpener;
-document.querySelectorAll('[data-contact-open]').forEach(trigger => {
-  trigger.addEventListener('click', () => {
-    if (contactDialog.open) return;
-    contactOpener = trigger;
-    contactDialog.showModal();
-    document.body.classList.add('contact-open');
-    document.dispatchEvent(new Event('portfoliofilter'));
-  });
-});
-contactDialog.querySelector('.contact-close').addEventListener('click', () => contactDialog.close());
-contactDialog.addEventListener('click', event => {
-  const rect = contactDialog.getBoundingClientRect();
-  if (event.target === contactDialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) contactDialog.close();
-});
-contactDialog.addEventListener('close', () => {
-  document.body.classList.remove('contact-open');
-  contactOpener?.focus({preventScroll:true});
+// Pause previews when visitors jump to the inline inquiry.
+document.querySelectorAll('a[href="#contact"]').forEach(link => {
+  link.addEventListener('click', () => document.dispatchEvent(new Event('portfoliofilter')));
 });
 
 const theme = document.querySelector('#theme');
