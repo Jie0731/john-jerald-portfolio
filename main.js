@@ -189,8 +189,9 @@ contactDialog.addEventListener('close', () => {
 const theme = document.querySelector('#theme');
 function setTheme(light) {
   document.body.classList.toggle('light',light);
-  const portrait = document.querySelector('.portrait-stage img');
-  if (portrait) portrait.src = light ? './assets/profile-light.webp' : './assets/profile.png';
+  document.querySelectorAll('.portrait-stage img, [data-theme-portrait]').forEach(portrait => {
+    portrait.src = light ? './assets/profile-light.webp' : './assets/profile.png';
+  });
   theme.textContent = light ? '☾' : '☼';
   theme.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
 }
@@ -321,4 +322,19 @@ document.querySelectorAll('.video-carousel').forEach(track => {
   }, {passive:true});
   new ResizeObserver(update).observe(track);
   update();
+});
+
+
+// Visitors review their brief in WhatsApp before sending it.
+document.querySelector('#project-inquiry').addEventListener('submit', event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+  const data = new FormData(form);
+  const fields = [['name','Name'],['email','Email'],['brand','Brand'],['type','Project type'],['budget','Budget'],['platform','Platform'],['deadline','Deadline'],['link','Project link'],['details','Project details']];
+  const brief = ['Hi John Jerald! I’d like to discuss a project.', '', ...fields.map(([key,label]) => {
+    const value = String(data.get(key) || '').trim();
+    return value ? `${label}: ${value}` : null;
+  }).filter(Boolean)].join('\n');
+  window.open('https://wa.me/639205362516?text=' + encodeURIComponent(brief), '_blank', 'noopener,noreferrer');
 });
