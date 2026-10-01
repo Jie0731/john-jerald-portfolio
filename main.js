@@ -10,16 +10,16 @@ const groups=[
   t:'VSL',
   d:'AI-assisted video sales letters built around hooks, product storytelling, pacing, and conversion-focused visual sequences.',
   v:[
-    ['https://youtube.com/shorts/6G_5bIG-GMM', 'VSL Sample 01'],
-    ['https://youtube.com/shorts/JBem3JV-QEE', 'VSL Sample 02'],
-    ['https://youtube.com/shorts/c6WkYlh93G4', 'VSL Sample 03'],
-    ['https://youtube.com/shorts/38EWO50-poY', 'VSL Sample 04'],
-    ['https://youtube.com/shorts/96xvASrtwK4', 'VSL Sample 05'],
-    ['https://youtube.com/shorts/xEsqEgKkH2M', 'VSL Sample 06'],
-    ['https://youtube.com/shorts/FjcUtP4oJFY', 'VSL Sample 07'],
-    ['https://youtube.com/shorts/lkqYSMw9LR4', 'VSL Sample 08'],
+    ['https://youtu.be/uxBVLGOz1yI', 'VSL Sample 10'],
     ['https://youtube.com/shorts/gxmW8kYb83Q', 'VSL Sample 09'],
-    ['https://youtu.be/uxBVLGOz1yI', 'VSL Sample 10']
+    ['https://youtube.com/shorts/lkqYSMw9LR4', 'VSL Sample 08'],
+    ['https://youtube.com/shorts/FjcUtP4oJFY', 'VSL Sample 07'],
+    ['https://youtube.com/shorts/xEsqEgKkH2M', 'VSL Sample 06'],
+    ['https://youtube.com/shorts/96xvASrtwK4', 'VSL Sample 05'],
+    ['https://youtube.com/shorts/38EWO50-poY', 'VSL Sample 04'],
+    ['https://youtube.com/shorts/c6WkYlh93G4', 'VSL Sample 03'],
+    ['https://youtube.com/shorts/JBem3JV-QEE', 'VSL Sample 02'],
+    ['https://youtube.com/shorts/6G_5bIG-GMM', 'VSL Sample 01']
   ]
 },
 {
