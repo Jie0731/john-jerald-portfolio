@@ -44,6 +44,7 @@ const groups=[
   t:'Pixar-Style AI Videos',
   d:'Character-driven stylized 3D storytelling with consistent art direction, cinematic framing, expressive motion, and scene continuity.',
   v:[
+    ['https://youtube.com/shorts/PAz03gyk0ec', 'Stylized 3D Sample 04'],
     ['https://youtube.com/shorts/vQ6bT4794FY', 'Stylized 3D Sample 01'],
     ['https://youtube.com/shorts/tZprSGiWiYI', 'Stylized 3D Sample 02'],
     ['https://youtube.com/shorts/eERZxmckjDA', 'Stylized 3D Sample 03']
