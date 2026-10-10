@@ -29,6 +29,7 @@ const groups=[
   t:'AI UGC',
   d:'Creator-style vertical videos designed to feel native, conversational, realistic, and ready for TikTok, Reels, Shorts, and paid social.',
   v:[
+    ['https://youtube.com/shorts/IENeRNB2TTE', 'UGC Sample 09'],
     ['https://youtube.com/shorts/emSVs_tf62o', 'UGC Sample 08'],
     ['https://youtube.com/shorts/t-7-M-4uorM', 'UGC Sample 07'],
     ['https://youtube.com/shorts/mjOlUYx_V5s', 'UGC Sample 06'],
