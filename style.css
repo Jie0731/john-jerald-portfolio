@@ -119,3 +119,8 @@ footer{border-top:1px solid var(--line);display:flex;gap:24px;align-items:center
 .contact-section .contact-copy h2{margin:18px 0 22px}
 @media(max-width:950px){.contact-section{padding:36px 28px}}
 @media(max-width:600px){.contact-section{padding:28px 20px;margin-bottom:36px;scroll-margin-top:90px}}
+
+/* Hero headline: longer sentence-style headline */
+.hero h1{font-size:clamp(40px,4.5vw,64px);line-height:1.04;letter-spacing:-.05em;max-width:15em;text-wrap:balance}
+@media(max-width:800px){.hero h1{font-size:40px}}
+@media(max-width:600px){.hero h1{font-size:clamp(34px,9.4vw,46px);max-width:none}}
