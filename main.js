@@ -8,7 +8,7 @@ const groups=[
   n:'01',
   k:'VSL',
   t:'VSL',
-  d:'AI-assisted video sales letters built around hooks, product storytelling, pacing, and conversion-focused visual sequences.',
+  d:'Video sales letters that walk a cold viewer from problem to product to offer, built around hooks, pacing, and conversion-focused sequences.',
   v:[
     ['https://youtube.com/shorts/6G_5bIG-GMM', 'VSL Sample 01'],
     ['https://youtube.com/shorts/JBem3JV-QEE', 'VSL Sample 02'],
@@ -27,7 +27,7 @@ const groups=[
   n:'02',
   k:'UGC / SOCIAL ADS',
   t:'AI UGC',
-  d:'Creator-style vertical videos designed to feel native, conversational, realistic, and ready for TikTok, Reels, Shorts, and paid social.',
+  d:'Creator-style vertical ads designed to feel native in the feed: conversational, realistic, and ready for TikTok, Reels, Shorts, and paid social.',
   v:[
     ['https://youtube.com/shorts/IENeRNB2TTE', 'UGC Sample 09'],
     ['https://youtube.com/shorts/emSVs_tf62o', 'UGC Sample 08'],
