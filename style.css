@@ -124,3 +124,17 @@ footer{border-top:1px solid var(--line);display:flex;gap:24px;align-items:center
 .hero h1{font-size:clamp(40px,4.5vw,64px);line-height:1.04;letter-spacing:-.05em;max-width:15em;text-wrap:balance}
 @media(max-width:800px){.hero h1{font-size:40px}}
 @media(max-width:600px){.hero h1{font-size:clamp(34px,9.4vw,46px);max-width:none}}
+
+/* Problems-I-solve section */
+.solve{padding-block:84px 76px;border-bottom:1px solid var(--line)}
+.solve-head{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:end;margin-bottom:44px}
+.solve-head h2{margin:0}
+.solve-head>p{color:var(--muted);font-size:15px;line-height:1.8;max-width:460px;margin:0 0 6px}
+.solve-list{margin:0;border-top:1px solid var(--line)}
+.solve-list>div{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;padding-block:26px;border-bottom:1px solid var(--line);align-items:baseline}
+.solve-list dt{font-size:clamp(20px,2.1vw,27px);font-weight:500;letter-spacing:-.03em;line-height:1.2;color:var(--muted)}
+.solve-list dd{margin:0;font-size:16px;line-height:1.65;color:var(--text);max-width:460px;position:relative;padding-left:26px}
+.solve-list dd:before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--acid)}
+body.light .solve-list dd:before{background:#6ea81f}
+.solve-link{display:inline-flex;margin-top:34px}
+@media(max-width:800px){.solve{padding-block:56px 52px}.solve-head{grid-template-columns:1fr;gap:16px;margin-bottom:30px}.solve-list>div{grid-template-columns:1fr;gap:12px;padding-block:22px}.solve-list dd{font-size:15px}}
