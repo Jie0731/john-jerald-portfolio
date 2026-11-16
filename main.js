@@ -10,6 +10,8 @@ const groups=[
   t:'VSL',
   d:'Video sales letters that walk a cold viewer from problem to product to offer, built around hooks, pacing, and conversion-focused sequences.',
   v:[
+    ['https://youtu.be/OIz5s4TnUOU', 'VSL Sample 12'],
+    ['https://youtube.com/shorts/ecDVYdRDzgM', 'VSL Sample 13'],
     ['https://youtube.com/shorts/6G_5bIG-GMM', 'VSL Sample 01'],
     ['https://youtube.com/shorts/JBem3JV-QEE', 'VSL Sample 02'],
     ['https://youtube.com/shorts/c6WkYlh93G4', 'VSL Sample 03'],
