@@ -83,6 +83,7 @@ const groups=[
   t:'AI Song / Suno',
   d:'AI-generated songs created with Suno, paired with video storytelling.',
   v:[
+    ['https://youtu.be/hOtrx5cbhHw', 'AI Song / Suno Sample 02'],
     ['https://youtube.com/shorts/w0Rb7vcZKoM', 'AI Song / Suno Sample 01']
   ]
 }
